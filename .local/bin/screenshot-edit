@@ -1,0 +1,9 @@
+#!/bin/bash
+
+geometry=$(slurp)
+
+if [ -z "$geometry" ]; then
+    exit 0  
+fi
+
+grim -g "$geometry" - | satty --filename - --output-filename "~/Pictures/Screenshots/Screenshot from $(date '+%Y-%m-%d %H:%M:%S').png"

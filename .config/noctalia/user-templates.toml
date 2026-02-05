@@ -1,0 +1,21 @@
+[config]
+
+[templates]
+
+[templates.obsidian]
+input_path = "~/.config/noctalia/templates/obsidian.css"
+output_path = "~/Uni/Notes/.obsidian/snippets/noctalia.css"
+
+# User-defined templates
+# Add your custom templates below
+# Example:
+# [templates.myapp]
+# input_path = "~/.config/noctalia/templates/myapp.css"
+# output_path = "~/.config/myapp/theme.css"
+# post_hook = "myapp --reload-theme"
+
+# Remove this section and add your own templates
+#[templates.placeholder]
+#input_path = "/home/vig/.config/quickshell/noctalia-shell/Assets/Templates/noctalia.json"
+#output_path = "/home/vig/.cache/noctalia/placeholder.json"
+
