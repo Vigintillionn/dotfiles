@@ -7,9 +7,9 @@
 
 ## 📖 The Story
 
-For 3 years, I daily drove **[Hyprland](https://hyprland.org/)** using the excellent **[ML4W (My Linux 4 Work)](https://github.com/mylinuxforwork/dotfiles)** dotfiles. It served me well, but I wanted something fresh.
+For 3 years, I daily drove **[Hyprland](https://hyprland.org/)** using the excellent **[ML4W (My Linux 4 Work)](https://github.com/mylinuxforwork/dotfiles)** dotfiles. It served me well, I was inexperienced at the time and had a really unstable and fragmanted system, I wanted something fresh and more stable.
 
-I have migrated to **[Niri](https://github.com/YaLTeR/niri)**, a scrollable-tiling Wayland compositor that offers a unique infinite-scrolling workflow. For the shell (bars, widgets, and UI), I am using a custom fork of **[Noctalia Shell](https://github.com/noctalia-dev/noctalia-shell)**, which is built on the lightning-fast **Quickshell** engine.
+I have migrated to **[Niri](https://github.com/YaLTeR/niri)**, a scrollable-tiling Wayland compositor that offers a unique infinite-scrolling workflow. For the shell (bars, widgets, and UI), I am using a custom fork (mainly to make it more AZERTY friendly) of **[Noctalia Shell](https://github.com/noctalia-dev/noctalia-shell)**, which is built on the lightning-fast **Quickshell** engine.
 
 This repository contains my current configuration, cleaned up and modularized using **GNU Stow** to keep my home directory pristine.
 
@@ -58,7 +58,7 @@ mv ~/.zshrc ~/backups/pre-stow/
 Clone this repository to your home folder:
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/dots.git](https://github.com/YOUR_USERNAME/dots.git) ~/dots
+git clone https://github.com/Vigintillionn/dotfiles.git ~/dots
 cd ~/dots
 
 ```
