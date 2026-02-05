@@ -3,7 +3,6 @@
 > **My personal Niri + Noctalia configuration (formerly Hyprland/ML4W).**
 > Managed with GNU Stow.
 
-![Niri Screenshot](https://placehold.co/800x450/1e1e2e/cdd6f4?text=Insert+Your+Screenshot+Here)
 ![Niri Screenshot](./assets/desktop.png)
 
 ## 📖 The Story
