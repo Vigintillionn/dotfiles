@@ -230,7 +230,7 @@ binds {
     Mod+V               repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
     Mod+Ctrl+P          repeat=false { spawn "hyprpicker" "-a"; }
     Mod+N               repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    Ctrl+Shift+Escape   { spawn "missioncenter"; }
+    Ctrl+Shift+Escape   repeat=false { spawn "missioncenter"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -348,24 +348,26 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    Mod+F1 { focus-workspace 1; }
-    Mod+F2 { focus-workspace 2; }
-    Mod+F3 { focus-workspace 3; }
-    Mod+F4 { focus-workspace 4; }
-    Mod+F5 { focus-workspace 5; }
-    Mod+F6 { focus-workspace 6; }
-    Mod+F7 { focus-workspace 7; }
-    Mod+F8 { focus-workspace 8; }
-    Mod+F9 { focus-workspace 9; }
-    Mod+Shift+F1 { move-window-to-workspace 1; }
-    Mod+Shift+F2 { move-window-to-workspace 2; }
-    Mod+Shift+F3 { move-window-to-workspace 3; }
-    Mod+Shift+F4 { move-window-to-workspace 4; }
-    Mod+Shift+F5 { move-window-to-workspace 5; }
-    Mod+Shift+F6 { move-window-to-workspace 6; }
-    Mod+Shift+F7 { move-window-to-workspace 7; }
-    Mod+Shift+F8 { move-window-to-workspace 8; }
-    Mod+Shift+F9 { move-window-to-workspace 9; }
+    Mod+Ampersand      { focus-workspace 1; }
+    Mod+Eacute         { focus-workspace 2; }
+    Mod+Quotedbl       { focus-workspace 3; }
+    Mod+Apostrophe     { focus-workspace 4; }
+    Mod+ParenLeft      { focus-workspace 5; }
+    Mod+Section        { focus-workspace 6; }  
+    Mod+Egrave         { focus-workspace 7; }
+    Mod+Exclam         { focus-workspace 8; }  
+    Mod+Ccedilla       { focus-workspace 9; }
+    Mod+Agrave         { focus-workspace 10; }
+    Mod+Shift+Ampersand      { move-column-to-workspace 1; }
+    Mod+Shift+Eacute         { move-column-to-workspace 2; }
+    Mod+Shift+Quotedbl       { move-column-to-workspace 3; }
+    Mod+Shift+Apostrophe     { move-column-to-workspace 4; }
+    Mod+Shift+ParenLeft      { move-column-to-workspace 5; }
+    Mod+Shift+Section        { move-column-to-workspace 6; }
+    Mod+Shift+Egrave         { move-column-to-workspace 7; }
+    Mod+Shift+Exclam         { move-column-to-workspace 8; }
+    Mod+Shift+Ccedilla       { move-column-to-workspace 9; }
+    Mod+Shift+Agrave         { move-column-to-workspace 10; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

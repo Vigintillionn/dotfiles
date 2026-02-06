@@ -197,8 +197,8 @@
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false,
+                    "showNoctaliaPerformance": true,
+                    "showPowerProfiles": true,
                     "warningThreshold": 30
                 },
                 {
@@ -448,7 +448,7 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
-        "criticalUrgencyDuration": 15,
+        "criticalUrgencyDuration": 30,
         "enableKeyboardLayoutToast": true,
         "enableMediaToast": false,
         "enabled": true,
@@ -607,6 +607,10 @@
             {
                 "enabled": true,
                 "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "zathura"
             }
         ],
         "enableUserTheming": true
