@@ -15,7 +15,10 @@
         "pinnedApps": [
             "spotify",
             "vesktop",
-            "obsidian"
+            "obsidian",
+            "org.mozilla.Thunderbird",
+            "steam",
+            "slack"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",

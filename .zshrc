@@ -3,7 +3,7 @@
 # -----------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
-export PATH="$HOME/.cargo/bin:$HOME/bin:/usr/lib/ccache/bin/:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/usr/lib/ccache/bin/:$HOME/.local/share/go/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # -----------------------------------------------------

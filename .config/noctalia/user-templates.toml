@@ -4,7 +4,8 @@
 
 [templates.obsidian]
 input_path = "~/.config/noctalia/templates/obsidian.css"
-output_path = "~/Uni/Notes/.obsidian/snippets/noctalia.css"
+output_path = "~/Documents/Uni/Notes/.obsidian/snippets/noctalia.css"
+
 
 # User-defined templates
 # Add your custom templates below
@@ -18,4 +19,3 @@ output_path = "~/Uni/Notes/.obsidian/snippets/noctalia.css"
 #[templates.placeholder]
 #input_path = "/home/vig/.config/quickshell/noctalia-shell/Assets/Templates/noctalia.json"
 #output_path = "/home/vig/.cache/noctalia/placeholder.json"
-

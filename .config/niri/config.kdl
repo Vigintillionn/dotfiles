@@ -217,20 +217,20 @@ window-rule {
 }
 
 binds {
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Ctrl+Return { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+B { spawn "firefox"; }
-    Mod+Shift+W { spawn-sh "qs -c noctalia-shell ipc call wallpaper random"; }
-    Mod+Ctrl+W { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
-    Mod+E { spawn "nautilus"; }
-    Mod+D { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Shift+C { spawn-sh "qs -c noctalia-shell ipc call plugin:weekly-calendar togglePanel"; }
-    Mod+Shift+M { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
-    Mod+V       { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+Ctrl+P { spawn "hyprpicker" "-a"; }
-    Mod+N { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    Ctrl+Shift+Escape { spawn "missioncenter"; }
+    Mod+Return          repeat=false hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Ctrl+Return     repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Alt+L           repeat=false hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+B               repeat=false { spawn "firefox"; }
+    Mod+Shift+W         repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random"; }
+    Mod+Ctrl+W          repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+E               repeat=false { spawn "nautilus" "-w"; }
+    Mod+D               repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Shift+C         repeat=false { spawn-sh "qs -c noctalia-shell ipc call plugin:weekly-calendar togglePanel"; }
+    Mod+Shift+M         repeat=false { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
+    Mod+V               repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
+    Mod+Ctrl+P          repeat=false { spawn "hyprpicker" "-a"; }
+    Mod+N               repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
+    Ctrl+Shift+Escape   { spawn "missioncenter"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -245,13 +245,13 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    Mod+dollar { spawn "qalculate-gtk"; }
+    Mod+dollar          repeat=false { spawn "qalculate-gtk"; }
 
-    Mod+O repeat=false { toggle-overview; }
-    Mod+T repeat=false { toggle-window-floating; }
-    Mod+Shift+T repeat=false { switch-focus-between-floating-and-tiling; }
-    Mod+Q repeat=false { close-window; }
-    Mod+Ctrl+Q { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+O               repeat=false { toggle-overview; }
+    Mod+T               repeat=false { toggle-window-floating; }
+    Mod+Shift+T         repeat=false { switch-focus-between-floating-and-tiling; }
+    Mod+Q               repeat=false { close-window; }
+    Mod+Ctrl+Q          repeat=false { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

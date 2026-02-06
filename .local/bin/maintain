@@ -1,0 +1,96 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' 
+
+confirm() {
+    echo -e -n "${YELLOW}$1 [y/N]: ${NC}"
+    read -r response
+    if [[ "$response" =~ ^[yY] ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+echo -e "${BLUE}Starting System Maintenance...${NC}"
+echo "--------------------------------------------"
+
+# 1. Update System
+if confirm "Update System (yay)?"; then
+    echo -e "${GREEN}Running update...${NC}"
+    yay
+else
+    echo "Skipping update."
+fi
+echo "--------------------------------------------"
+
+# 2. Pacman Cache
+# Calculate size of official cache
+PAC_SIZE=$(du -sh /var/cache/pacman/pkg 2>/dev/null | cut -f1)
+echo -e "Pacman Cache Size: ${RED}$PAC_SIZE${NC}"
+
+if confirm "Clean Pacman cache (keep last 2 versions)?"; then
+    sudo paccache -rk2
+else
+    echo "Skipping Pacman clean."
+fi
+echo "--------------------------------------------"
+
+# 3. AUR Cache (Yay)
+# Calculate size of yay cache
+YAY_SIZE=$(du -sh ~/.cache/yay 2>/dev/null | cut -f1)
+echo -e "Yay (AUR) Cache Size: ${RED}${YAY_SIZE:-0B}${NC}"
+
+if confirm "Clean AUR cache (remove uninstalled)?"; then
+    yay -Sc
+else
+    echo "Skipping AUR clean."
+fi
+echo "--------------------------------------------"
+
+# 4. Orphans
+ORPHANS=$(pacman -Qtdq)
+if [[ -z "$ORPHANS" ]]; then
+    echo -e "Orphans found: ${GREEN}0${NC}"
+    echo "Skipping orphan removal."
+else
+    COUNT=$(echo "$ORPHANS" | wc -l)
+    echo -e "Orphans found: ${RED}$COUNT${NC}"
+    
+    if confirm "Remove these $COUNT unused dependencies?"; then
+        sudo pacman -Rns $ORPHANS
+    else
+        echo "Skipping orphan removal."
+    fi
+fi
+echo "--------------------------------------------"
+
+# 5. Trash
+TRASH_SIZE=$(du -sh ~/.local/share/Trash 2>/dev/null | cut -f1)
+echo -e "Trash Size: ${RED}${TRASH_SIZE:-0B}${NC}"
+
+if confirm "Empty the Trash?"; then
+    rm -rf ~/.local/share/Trash/*
+    echo -e "${GREEN}Trash emptied.${NC}"
+else
+    echo "Skipping Trash."
+fi
+echo "--------------------------------------------"
+
+# 6. System Logs (Journal)
+# journalctl --disk-usage prints "Archived and active journals take up X MB..."
+LOG_USAGE=$(journalctl --disk-usage | awk '{print $7}')
+echo -e "System Logs Size: ${RED}$LOG_USAGE${NC}"
+
+if confirm "Vacuum logs (keep last 2 weeks)?"; then
+    sudo journalctl --vacuum-time=2weeks
+else
+    echo "Skipping log cleanup."
+fi
+
+echo "--------------------------------------------"
+echo -e "${BLUE}Maintenance Complete.${NC}"
