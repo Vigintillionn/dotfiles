@@ -63,7 +63,7 @@ cd ~/dots
 
 ```
 
-Apply the configurations using Stow. You can pick and choose which modules you want:
+Apply the configurations using Stow:
 
 ```bash
 # Install everything
