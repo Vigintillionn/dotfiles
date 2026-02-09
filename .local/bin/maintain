@@ -92,5 +92,16 @@ else
     echo "Skipping log cleanup."
 fi
 
+dl_size=$(du -sm "$HOME/Downloads" | cut -f1)
+dl_limit=5120  # 5GB in MB
+
+if [ "$dl_size" -gt "$dl_limit" ]; then
+    echo "--------------------------------------------"
+    current_size=$(du -sh "$HOME/Downloads" | cut -f1)
+    
+    echo -e "⚠️ HEADS UP: Downloads folder is huge ($current_size)"
+    echo "   You should probably clear it out soon."
+fi
+
 echo "--------------------------------------------"
 echo -e "${BLUE}Maintenance Complete.${NC}"

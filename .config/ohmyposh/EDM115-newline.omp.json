@@ -46,7 +46,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "{{ .Icon }}  ",
+          "template": "\uf303 ",
           "foreground": "#f8f8f2",
           "powerline_symbol": "\ue0b0",
           "background": "#282a36",
@@ -100,9 +100,7 @@
         {
           "properties": {
             "display_mode": "files",
-            "extensions": [
-              "package-lock.json"
-            ]
+            "extensions": ["package-lock.json"]
           },
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
@@ -115,9 +113,7 @@
         {
           "properties": {
             "display_mode": "files",
-            "extensions": [
-              "pnpm-lock.yaml"
-            ]
+            "extensions": ["pnpm-lock.yaml"]
           },
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",

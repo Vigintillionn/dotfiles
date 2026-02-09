@@ -44,15 +44,6 @@ output "DP-5" {
     position x=1920 y=0
     scale 1.0
 }
-output "HDMI-A-1" {
-    // 0.8 acts like "zooming out", giving you more space
-    scale 0.8
-    
-    // Also, your TV prefers 50Hz, but 60Hz is available. 
-    // Forcing 60Hz makes mouse movement smoother.
-    mode "1920x1080@60"
-    position x=1920 y=0
-}
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -109,7 +100,6 @@ layout {
     background-color "#0e1111"
 
     preset-column-widths {
-        proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
@@ -151,6 +141,7 @@ spawn-at-startup "swayidle" "-w" \
     "before-sleep" "hyprlock"
 spawn-at-startup "kdeconnect-indicator"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "~/.local/bin/niri-sidebar" "listen"
 
 hotkey-overlay {
     skip-at-startup
@@ -181,6 +172,12 @@ layer-rule {
 }
 
 window-rule {
+    match is-floating=true
+    min-width 100 
+    min-height 100
+}
+
+window-rule {
     match is-active=false
     opacity 0.9
 }
@@ -196,13 +193,13 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
+    match app-id="firefox"
+    open-maximized true
 }
 
 window-rule {
-    match app-id="firefox"
-    open-maximized true
+    match app-id="firefox" title=r#"^(Picture-in-Picture|Extension:.*|Sign in.*|Login.*|Library)$"#
+    open-floating true
 }
 
 window-rule {
@@ -214,6 +211,7 @@ window-rule {
 window-rule {
     match app-id="spotify"
     open-on-workspace "d"
+    open-on-output "DP-3"
 }
 
 binds {
@@ -252,6 +250,11 @@ binds {
     Mod+Shift+T         repeat=false { switch-focus-between-floating-and-tiling; }
     Mod+Q               repeat=false { close-window; }
     Mod+Ctrl+Q          repeat=false { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+
+    Mod+S               { spawn-sh "~/.local/bin/niri-sidebar toggle-window"; }
+    Mod+Ctrl+S          { spawn-sh "~/.local/bin/niri-sidebar toggle-visibility"; }
+    Mod+X               { spawn-sh "~/.local/bin/niri-sidebar flip"; }
+    Mod+Alt+S           { spawn-sh "~/.local/bin/niri-sidebar focus next"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -358,16 +361,16 @@ binds {
     Mod+Exclam         { focus-workspace 8; }  
     Mod+Ccedilla       { focus-workspace 9; }
     Mod+Agrave         { focus-workspace 10; }
-    Mod+Shift+Ampersand      { move-column-to-workspace 1; }
-    Mod+Shift+Eacute         { move-column-to-workspace 2; }
-    Mod+Shift+Quotedbl       { move-column-to-workspace 3; }
-    Mod+Shift+Apostrophe     { move-column-to-workspace 4; }
-    Mod+Shift+ParenLeft      { move-column-to-workspace 5; }
-    Mod+Shift+Section        { move-column-to-workspace 6; }
-    Mod+Shift+Egrave         { move-column-to-workspace 7; }
-    Mod+Shift+Exclam         { move-column-to-workspace 8; }
-    Mod+Shift+Ccedilla       { move-column-to-workspace 9; }
-    Mod+Shift+Agrave         { move-column-to-workspace 10; }
+    Mod+Shift+Ampersand      { move-window-to-workspace 1; }
+    Mod+Shift+Eacute         { move-window-to-workspace 2; }
+    Mod+Shift+Quotedbl       { move-window-to-workspace 3; }
+    Mod+Shift+Apostrophe     { move-window-to-workspace 4; }
+    Mod+Shift+ParenLeft      { move-window-to-workspace 5; }
+    Mod+Shift+Section        { move-window-to-workspace 6; }
+    Mod+Shift+Egrave         { move-window-to-workspace 7; }
+    Mod+Shift+Exclam         { move-window-to-workspace 8; }
+    Mod+Shift+Ccedilla       { move-window-to-workspace 9; }
+    Mod+Shift+Agrave         { move-window-to-workspace 10; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
